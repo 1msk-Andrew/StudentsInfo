@@ -29,7 +29,7 @@ namespace Students_Info
             //var sorted_students = students.OrderBy(x => x.Value);
 
             //Вывод информации о студентах
-            Console.WriteLine("Таблица ФИО и даты рождения всех студентов, отсортированных по дате рождения:");
+            Console.WriteLine("\nТаблица ФИО и даты рождения всех студентов, отсортированных по дате рождения:");
             foreach (var student in sorted_students)
             {
                 Console.WriteLine("{0} - {1}", student.Key, student.Value.ToShortDateString());
@@ -37,7 +37,11 @@ namespace Students_Info
         }
         static void Main(string[] args)
         {
-
+            //Вывод информации о студентах в остортированном по датам рождения порядке
+            Console.Write("Введите путь к файлу, в котором указан список студентов и их дни рождения -> ");
+            string path = Console.ReadLine();
+            get_students_info(path);
+            Console.ReadKey();
         }
     }
 }
