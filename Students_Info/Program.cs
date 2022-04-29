@@ -15,13 +15,21 @@ namespace Students_Info
             {
                 text = reader.ReadToEnd().Split('\n');
             }
-            Dictionary<string, string> students = new Dictionary<string, string>();
+            Dictionary<string, DateTime> students = new Dictionary<string, DateTime>();
             foreach(string stroka in text)
             {
-                students.Add(stroka.Split(" - ")[0], stroka.Split(" - ")[1]);
+                students.Add(stroka.Split(" - ")[0], Convert.ToDateTime(stroka.Split(" - ")[1]));
             }
-            //TODO: Сортировка студентов по датам рождения
-            //TODO: вывод информации о студентах
+
+            //Сортировка студентов по датам рождения
+            var sorted_students = from student in students
+                                  orderby student.Value
+                                  select student;
+            //Ещё один из вариантов:
+            //var sorted_students = students.OrderBy(x => x.Value);
+
+            //TODO: Вывод информации о студентах
+
         }
         static void Main(string[] args)
         {
