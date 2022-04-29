@@ -28,8 +28,12 @@ namespace Students_Info
             //Ещё один из вариантов:
             //var sorted_students = students.OrderBy(x => x.Value);
 
-            //TODO: Вывод информации о студентах
-
+            //Вывод информации о студентах
+            Console.WriteLine("Таблица ФИО и даты рождения всех студентов, отсортированных по дате рождения:");
+            foreach (var student in sorted_students)
+            {
+                Console.WriteLine("{0} - {1}", student.Key, student.Value.ToShortDateString());
+            }
         }
         static void Main(string[] args)
         {
